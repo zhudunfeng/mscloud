@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.atguigu.springcloud.dao.PaymentDao">
+
+    <resultMap id="BaseResultMap" type="com.atguigu.springcloud.entities.Payment">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="serial" property="serial" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <insert id="create">
+        INSERT INTO payment(SERIAL) VALUES(#{serial});
+    </insert>
+<!--    public void delete(Long id);-->
+    <delete id="delete" parameterType="Long">
+        delete from payment where id=#{id}
+    </delete>
+<!--    void update(Payment payment);-->
+    <update id="update">
+        update payment set serial=#{serial} where id=#{id}
+    </update>
+    <select id="getPaymentById" resultType="Payment" parameterType="Long">
+        SELECT * FROM payment WHERE id=#{id};
+    </select>
+
+    <select id="list" resultType="Payment">
+        SELECT * FROM payment;
+    </select>
+</mapper>
+
+
+
+

@@ -1,0 +1,12 @@
+server:
+  port: 83
+
+spring:
+  application:
+    name: nacos-order-consumer #消费者注册进nacos自己叫什么名字
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848     #注册中心地址集群
+#        config:
+#          server-addr: 127.0.0.1:8848,127.0.0.1:8847,127.0.0.1:8846     #配置中心地址集群
